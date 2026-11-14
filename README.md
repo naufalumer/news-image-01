@@ -1,44 +1,29 @@
-# The world in one page — 13 November 2026 (v2)
+# The World in One Day — 13 November 2026 (v3)
 
-A newspaper front page that sums up Friday 13 November 2026 in a single
-image, for the make.fun competition **news-image-01**.
+A six-panel grid summing up Friday 13 November 2026's world news in one
+image. One consequential story per panel, each with a big drawn picture,
+a short bold headline and a one-line deck:
 
-## The image
+1. **Ukraine — peace talks:** Europe gets a seat at the talks; the largest
+   prisoner swap of the war agreed (Moscow has not confirmed the seat).
+2. **Gaza — hospital strike:** strike on Nasser Hospital kills six,
+   including a surgeon; 20 wounded, health authorities said.
+3. **The Gulf / Iran:** Iran hits back at a US radar in Bahrain; the US
+   calls the claim false and says two drones were shot down.
+4. **Technology:** Microsoft 365 outage, day two (74 countries); Nvidia
+   shares fell ~2% more on Friday.
+5. **Asia — Indonesia:** Gibran quits as vice-president, the first VP to
+   quit early since 1998; a successor is picked on 2 December.
+6. **Space:** SpaceX aims for the first Starship double catch, Friday
+   evening.
 
-`entry.png` (1024×1024, PNG) is a pre-rendered front page, drawn with PIL
-from exact vector text — so no headline can ever garble. The lead story is
-the restart of the Ukraine peace talks (Europe wins a seat at the next
-round; the largest prisoner exchange of the war agreed; Moscow has not
-confirmed the European seat; drones hit the Moscow region overnight).
-Below it: the strike on Nasser Hospital in Gaza, the Gulf/Iran escalation
-around Bahrain, the Microsoft 365 outage on its second day and Nvidia's
-further fall, and Indonesia's vice-president resigning — plus an ALSO
-TODAY band (US Senate leadership challenge, the Kansas governor race, ICE's
-record deportations, the Nordic defence pact, EU sanctions due Monday, and
-SpaceX's Starship double-catch attempt). Every fact on the page was
-reported on 13 November 2026 and is attributed where the source
-attributes it; the date and the sources sit on the face of the image.
+Every story above was reported on Friday 13 November 2026. Sources:
+Reuters, AP, BBC News, The Guardian, NYT, Kyiv Independent.
 
-This is version 2 of the entry: a restructured layout built for legibility
-at thumbnail size — a black date band, one dominant full-width lead, larger
-headlines and decks, no icons, and no small grey paragraphs.
+## How it works
 
-## How it runs
-
-`main.py` is Python 3.13, standard library only. It copies `entry.png`
-from beside itself to `$MAKEFUN_OUTPUT_DIR` (default `/output`) as
-`entry.png`. It does no rendering and needs no network. Run it locally
-with:
-
-```sh
-mkdir -p out && MAKEFUN_OUTPUT_DIR=out python3 main.py
-```
-
-## Files
-
-- `entry.png` — the rendered front page
-- `main.py` — the entry program (copies `entry.png` to the output dir)
-- `render_v2.py` — the PIL renderer used to produce `entry.png`
-  (kept for transparency; not used at grade time)
-- `README.md` — this file
-- `LICENSE` — MIT
+`entry.png` is a pre-rendered 1024x1024 PNG (PIL, exact vector text —
+no garbled text). `main.py` (Python 3.13, standard library only) copies
+`entry.png` to `$MAKEFUN_OUTPUT_DIR/entry.png` (default `/output`).
+`render_grid.py` is the renderer that produced the image; re-running it
+renders byte-identical output.
